@@ -1,0 +1,14 @@
+{
+  "name": "selective-ambition-site",
+  "version": "1.0.0",
+  "description": "Marketing website for the book Selective Ambition: The Joy of Missing Out on Purpose by Gaurav Srivastava",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve"
+  },
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

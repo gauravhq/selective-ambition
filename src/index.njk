@@ -1,0 +1,87 @@
+---
+layout: base.njk
+permalink: /
+---
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">A book by {{ site.author }}</div>
+      <h1>Selective<br>Ambition</h1>
+      <p class="sub">{{ site.subtitle }}</p>
+      <p class="lead" style="color:var(--ink-soft);max-width:34ch">You don't have a time-management problem. You have a too-many-open-doors problem.</p>
+      <div class="buy">
+        <div class="btn-row">
+          {% if site.amazon.kindle %}<a class="btn" href="{{ site.amazon.kindle }}" target="_blank" rel="noopener">Read it on Kindle</a>{% endif %}
+          <a class="btn ghost" href="/book/">About the book</a>
+        </div>
+        {% if not site.amazon.paperback %}<p class="soon">Kindle edition out now. Paperback coming soon.</p>{% endif %}
+      </div>
+    </div>
+    <div class="cover-shot">
+      <img src="/assets/cover.jpg" alt="Selective Ambition: The Joy of Missing Out on Purpose book cover by Gaurav Srivastava" width="320" height="512">
+    </div>
+  </div>
+</section>
+
+<section class="section"><div class="wrap"><div class="panel">
+  <h2>A life that looks full on paper</h2>
+  <p class="lead">Everywhere you look, someone is doing more. More projects, more side hustles, more 5 a.m. routines. And now that AI has made almost any idea buildable in a weekend, the pressure to chase every one of them at once has never been higher. So you say yes to everything, keep every door open just in case, and end up busy, tired, and quietly wondering why a life that looks so full on paper feels so hollow to live.</p>
+  <p><strong>Selective Ambition</strong> is the antidote to that feeling. Not another productivity system, and not a plan to cram more into your day. It is the case for the opposite: caring deeply about fewer things, and letting the rest go on purpose. The Joy of Missing Out, not as a throwaway hashtag, but as a genuine way of choosing, working, and finally feeling like yourself again.</p>
+  <p>The problem was never your discipline or your morning routine. The problem is a world that hands you infinite options and then calls the exhaustion that follows "ambition."</p>
+</div></div></section>
+
+<section class="section"><div class="wrap"><div class="panel">
+  <h2>Inside, you'll learn how to</h2>
+  <div class="rule"><span></span></div>
+  <ul class="checks">
+    <li>Tell the difference between being <em>busy</em> and being <em>stretched</em>, and why only one can be fixed with a calendar.</li>
+    <li>Find what you are genuinely hungry for, beneath the noise of everything you are "supposed" to want.</li>
+    <li>Say a clear, guilt-free no, even when you cannot simply walk away.</li>
+    <li>Break the grip of comparison by curating what you allow into your head.</li>
+    <li>Choose "one-thing seasons" and go deep, instead of skimming a dozen half-finished projects.</li>
+    <li>Turn a life that is merely full into one that is genuinely fulfilling.</li>
+  </ul>
+</div></div></section>
+
+<section class="section"><div class="wrap"><div class="panel" style="text-align:center">
+  <p class="pullquote">Full and fulfilling are two different things.</p>
+  <p class="lead" style="color:var(--ink-soft)">It is time to choose the second.</p>
+</div></div></section>
+
+<section class="section"><div class="wrap"><div class="panel">
+  <h2>Grounded, not hand-wavy</h2>
+  <p class="lead">The arguments draw on hard-won personal experience and decades of research on attention, comparison, and choice, each source named and cited in the book:</p>
+  <div class="rule"><span></span></div>
+  <ul class="checks">
+    <li>The Paradox of Choice</li>
+    <li>Social Comparison Theory</li>
+    <li>Hedonic Adaptation</li>
+    <li>The science of "no" (social pain)</li>
+    <li>Flow</li>
+    <li>Burnout as loss of agency</li>
+  </ul>
+</div></div></section>
+
+<section class="section"><div class="wrap">
+  <h2 style="color:var(--ink);text-align:center;margin-bottom:6px">From the blog</h2>
+  <div class="rule"><span></span></div>
+  <div class="post-list">
+    {% for post in collections.posts %}{% if loop.index <= 3 %}
+    <a class="post-item" href="{{ post.url }}">
+      <div class="date">{{ post.date | readableDate }}</div>
+      <h3>{{ post.data.title }}</h3>
+      <p>{{ post.data.pageDescription }}</p>
+    </a>
+    {% endif %}{% endfor %}
+  </div>
+  <p style="text-align:center;margin-top:20px"><a class="btn ghost" href="/blog/">Read the blog</a></p>
+</div></section>
+
+<section class="section"><div class="wrap"><div class="panel" style="text-align:center">
+  <p class="pullquote">The doors will always be there.</p>
+  <p class="lead" style="color:var(--ink-soft)">This book is about the freedom of choosing one, and closing the rest without regret.</p>
+  <div class="btn-row" style="justify-content:center;margin-top:16px">
+    {% if site.amazon.kindle %}<a class="btn" href="{{ site.amazon.kindle }}" target="_blank" rel="noopener">Get Selective Ambition</a>{% endif %}
+    <a class="btn ghost" href="/book/">About the book</a>
+  </div>
+</div></div></section>

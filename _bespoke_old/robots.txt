@@ -1,0 +1,36 @@
+# Selective Ambition - open to everyone, including answer engines and AI crawlers.
+User-agent: *
+Allow: /
+
+# Explicitly welcomed AI / LLM crawlers (GEO / answer-engine findability)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://gauravhq.github.io/selective-ambition/sitemap.xml

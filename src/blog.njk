@@ -1,0 +1,22 @@
+---
+layout: base.njk
+permalink: /blog/
+title: Blog
+pageDescription: Short ideas from Selective Ambition, one at a time - on choosing fewer things and letting the rest go on purpose.
+---
+<section class="section"><div class="wrap" style="max-width:800px">
+  <h2 style="color:var(--ink)">The Blog</h2>
+  <p class="sub" style="color:var(--ink-soft);max-width:60ch">Short ideas from the book, one at a time.</p>
+  <div class="rule"><span></span></div>
+  <div class="post-list">
+    {% for post in collections.posts %}
+    <a class="post-item" href="{{ post.url }}">
+      <div class="date">{{ post.date | readableDate }}</div>
+      <h3>{{ post.data.title }}</h3>
+      <p>{{ post.data.pageDescription }}</p>
+    </a>
+    {% else %}
+    <p>The first posts are on their way. Check back soon.</p>
+    {% endfor %}
+  </div>
+</div></section>

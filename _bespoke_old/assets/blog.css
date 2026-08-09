@@ -1,0 +1,77 @@
+/* Blog layer - inherits the book palette + fonts from style.css */
+
+.crumb{font-size:.95rem;margin:0 0 2rem;}
+.crumb a{color:var(--ink-soft);}
+.crumb a:hover{color:var(--amber-deep);}
+
+/* ---- journal index ---- */
+.journal-head{max-width:var(--wrap);margin:0 auto;padding:3rem 2rem 1rem;}
+.journal-head h1{
+  font-family:var(--display);font-weight:800;line-height:1;
+  font-size:clamp(2.6rem,6vw,4.4rem);margin:.4rem 0 0;color:var(--ink);
+}
+.journal-head h1 em{color:var(--amber-deep);font-weight:500;}
+.journal-head .dek{max-width:40rem;color:var(--ink-soft);font-size:1.2rem;margin:1.4rem 0 0;}
+
+.post-list{
+  max-width:var(--wrap);margin:0 auto;padding:2.5rem 2rem 5rem;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(19rem,1fr));gap:1.5rem;
+}
+.post-card{
+  display:flex;flex-direction:column;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:8px;padding:1.7rem 1.6rem;color:var(--ink);
+  transition:transform .25s ease,box-shadow .25s ease,background .25s;
+}
+.post-card:hover{transform:translateY(-5px);box-shadow:0 20px 40px -26px rgba(42,32,19,.6);background:var(--paper);}
+.post-card h2{
+  font-family:var(--display);font-weight:600;font-size:1.35rem;line-height:1.15;
+  margin:.7rem 0 .6rem;color:var(--ink);
+}
+.post-card p{margin:0 0 1.1rem;font-size:1.02rem;color:var(--ink-soft);line-height:1.5;flex:1;}
+.card-more{font-size:.95rem;color:var(--amber-deep);}
+
+/* ---- single post ---- */
+.article{max-width:40rem;margin:0 auto;padding:3rem 2rem 4rem;}
+.article h1{
+  font-family:var(--display);font-weight:800;line-height:1.03;letter-spacing:-.01em;
+  font-size:clamp(2.2rem,5.2vw,3.4rem);margin:.3rem 0 0;color:var(--ink);
+}
+.byline{
+  font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);
+  margin:1.1rem 0 0;
+}
+.article .dek{
+  font-family:var(--display);font-style:italic;font-size:1.4rem;line-height:1.35;
+  color:var(--amber-deep);margin:1.6rem 0 0;
+}
+.post-body{margin-top:2rem;}
+.post-body p{margin:0 0 1.35rem;font-size:1.24rem;line-height:1.72;}
+
+.draft-badge{
+  display:inline-block;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--paper);background:var(--sage);border-radius:2rem;padding:.15rem .6rem;
+  vertical-align:middle;margin-left:.5rem;
+}
+
+/* ---- attribution + buy CTA (on every post) ---- */
+.post-cta{
+  margin-top:3rem;padding:1.8rem;border:1px solid var(--line);border-radius:10px;
+  background:var(--paper-2);
+}
+.post-cta p{margin:0 0 1.3rem;font-size:1.08rem;color:var(--ink-soft);line-height:1.55;}
+.cta-buttons{display:flex;flex-wrap:wrap;gap:.9rem;}
+.btn-ghost{
+  background:transparent;color:var(--amber-deep);border:1px solid var(--amber);
+  box-shadow:none;
+}
+.btn-ghost:hover{background:var(--amber);color:var(--paper);}
+.btn.is-disabled{
+  opacity:.55;cursor:default;pointer-events:none;
+  background:transparent;color:var(--ink-soft);border:1px dashed var(--line);box-shadow:none;
+}
+
+@media(max-width:520px){
+  .article,.journal-head{padding-left:1.3rem;padding-right:1.3rem;}
+  .post-list{padding:2rem 1.3rem 3.5rem;}
+  .post-body p{font-size:1.14rem;}
+}

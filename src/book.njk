@@ -1,0 +1,61 @@
+---
+layout: base.njk
+permalink: /book/
+title: The Book
+pageDescription: About Selective Ambition by Gaurav Srivastava - the case for caring deeply about fewer things and letting the rest go on purpose.
+---
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Book","@id":{{ (site.url + "/book/#book") | dump | safe }},"name":{{ (site.title + ": " + site.subtitle) | dump | safe }},"author":{"@type":"Person","@id":{{ (site.url + "/author/#person") | dump | safe }},"name":{{ site.author | dump | safe }}},"publisher":{"@type":"Organization","name":{{ site.book.publisher | dump | safe }}},"description":{{ site.description | dump | safe }},"image":{{ (site.url + "/assets/cover.jpg") | dump | safe }},"url":{{ (site.url + "/book/") | dump | safe }},"inLanguage":{{ site.book.inLanguage | dump | safe }},"genre":{{ site.book.genre | dump | safe }},"datePublished":{{ site.book.datePublished | dump | safe }},"workExample":[{"@type":"Book","@id":{{ (site.url + "/book/#kindle") | dump | safe }},"bookFormat":"https://schema.org/EBook","name":{{ (site.title + " (Kindle Edition)") | dump | safe }},"inLanguage":{{ site.book.inLanguage | dump | safe }},"datePublished":{{ site.book.kindle.datePublished | dump | safe }},"numberOfPages":{{ site.book.kindle.numberOfPages | dump | safe }},"identifier":{"@type":"PropertyValue","propertyID":"ASIN","value":{{ site.book.kindle.asin | dump | safe }}},"url":{{ site.amazon.kindle | dump | safe }},"potentialAction":{"@type":"ReadAction","target":{{ site.amazon.kindle | dump | safe }}},"offers":{"@type":"Offer","url":{{ site.amazon.kindle | dump | safe }},"availability":"https://schema.org/InStock"}}{% if site.amazon.paperback %},{"@type":"Book","@id":{{ (site.url + "/book/#paperback") | dump | safe }},"bookFormat":"https://schema.org/Paperback","name":{{ (site.title + " (Paperback)") | dump | safe }},"inLanguage":{{ site.book.inLanguage | dump | safe }},"datePublished":{{ site.book.paperback.datePublished | dump | safe }},"numberOfPages":{{ site.book.paperback.numberOfPages | dump | safe }},"isbn":{{ site.book.paperback.isbn | dump | safe }},"identifier":{"@type":"PropertyValue","propertyID":"ASIN","value":{{ site.book.paperback.asin | dump | safe }}},"url":{{ site.amazon.paperback | dump | safe }},"offers":{"@type":"Offer","url":{{ site.amazon.paperback | dump | safe }},"availability":"https://schema.org/InStock"}}{% endif %}]}
+</script>
+<section class="section"><div class="wrap"><div class="panel">
+  <div class="eyebrow">The Book</div>
+  <h1 class="book-title" style="font-size:clamp(30px,4.5vw,44px);margin:0">{{ site.title }}</h1>
+  <p class="subtitle-line">{{ site.subtitle }}</p>
+  <p class="book-byline">by {{ site.author }}</p>
+
+  <p class="lead"><strong>You don't have a time-management problem. You have a too-many-open-doors problem.</strong></p>
+  <p>Everywhere you look, someone is doing more. More projects, more side hustles, more 5 a.m. routines, more "optimised" everything. Open any feed and a stranger has already read fifty books this year, launched a company, and run a marathon, all before breakfast. And now that AI has made almost any idea buildable in a weekend, the pressure to chase every one of them at once has never been higher. So you say yes to everything. You spread yourself thin. You keep every door open, just in case. And you end up busy, tired, and quietly wondering why a life that looks so full on paper feels so hollow to live.</p>
+  <p><em>Selective Ambition</em> is the antidote to that feeling.</p>
+  <p>This is not another productivity system, and it is not a plan to cram more into your day. It is the case for the opposite: caring deeply about fewer things, and letting the rest go on purpose. It is the Joy of Missing Out, JOMO, not as a throwaway hashtag but as a genuine way of choosing, working, and finally feeling like yourself again. Because the problem was never your discipline, your morning routine, or your time management. The problem is a world that hands you infinite options and then calls the exhaustion that follows "ambition."</p>
+  <p>Drawing on hard-won personal experience and the science of attention, comparison, and choice, {{ site.author }} shows why more options have quietly made us less happy, and how one deliberate decision changes everything: to stop chasing every open door and walk, on purpose, through the one that actually matters.</p>
+  <p><em>Selective Ambition</em> moves from the rush that wears us down, through the pause that wakes us up, to the choices that set us free and the quiet joy waiting on the other side. It is honest about how hard this is, especially when your job, your family, or your bills mean you cannot simply walk away. So alongside the ideas you will find tools you can use the same afternoon: a way to audit the inputs feeding your anxiety, a clear framework for the intentional no, and small "five per cent shifts" for the seasons when quitting is not an option.</p>
+
+  <div class="rule"><span></span></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>Inside, you will learn how to</h3>
+      <ul class="checks">
+        <li>Tell the difference between being <em>busy</em> and being <em>stretched</em>, and why only one of them can be fixed with a calendar</li>
+        <li>Find what you are genuinely hungry for, beneath the noise of everything you are "supposed" to want</li>
+        <li>Say a clear, guilt-free no, even in the situations where you cannot simply walk away</li>
+        <li>Break the grip of comparison by curating what you allow into your head</li>
+        <li>Protect your attention in a world engineered to fragment it</li>
+        <li>Trade the frictionless comfort of screens for the messy, meaningful friction of real people and real life</li>
+        <li>Choose "one-thing seasons" and go deep, instead of skimming the surface of a dozen half-finished projects</li>
+        <li>Turn a life that is merely full into one that is genuinely fulfilling</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>The editions</h3>
+      <ul class="checks">
+        <li>Kindle - ASIN {{ site.book.kindle.asin }}, {{ site.book.kindle.numberOfPages }} pages</li>
+        {% if site.book.paperback.asin %}<li>Paperback - ASIN {{ site.book.paperback.asin }}, ISBN {{ site.book.paperback.isbn }}, {{ site.book.paperback.numberOfPages }} pages</li>{% endif %}
+        <li>Published {{ site.book.datePublished | readableDate }}</li>
+        <li>Language: English</li>
+        <li>Publisher: {{ site.book.publisher }}</li>
+      </ul>
+      <p style="margin-top:14px;color:var(--ink-soft)">If you are a maker, a striver, a parent, a professional, or simply anyone who feels the constant, low hum of "not enough" no matter how much you accomplish, this book was written for you.</p>
+    </div>
+  </div>
+
+  <p style="margin-top:24px"><strong>The doors will always be there. This book is about the freedom of choosing one, and closing the rest without regret.</strong></p>
+  <p><em>Full and fulfilling are two different things. It is time to choose the second.</em></p>
+
+  <div class="buybar" style="border-top:none">
+    <div class="btn-row">
+      {% if site.amazon.kindle %}<a class="btn" href="{{ site.amazon.kindle }}" target="_blank" rel="noopener">Buy on Kindle</a>{% endif %}
+      {% if site.amazon.paperback %}<a class="btn ghost" href="{{ site.amazon.paperback }}" target="_blank" rel="noopener">Buy the paperback</a>{% endif %}
+    </div>
+    {% if not site.amazon.paperback %}<p class="soon">Paperback edition coming soon.</p>{% endif %}
+  </div>
+</div></div></section>

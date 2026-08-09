@@ -1,0 +1,51 @@
+---
+layout: base.njk
+permalink: /faq/
+title: FAQ
+pageDescription: Answers to common questions about JOMO, selective ambition, and the book Selective Ambition by Gaurav Srivastava.
+---
+{% set faqs = [
+  {
+    q: 'What is JOMO, the Joy of Missing Out?',
+    a: 'The Joy of Missing Out, JOMO, is the flip side of the fear of missing out. In Selective Ambition it is not a throwaway hashtag but a genuine way of choosing, working, and living: caring deeply about fewer things, and letting the rest go on purpose. It is the quiet joy of closing doors you were only keeping open just in case.'
+  },
+  {
+    q: 'Is this an anti-ambition book?',
+    a: 'No. It is a book about selective ambition, not the absence of ambition. The aim is not to want nothing; it is to care deeply about fewer things and give them your full depth, instead of spreading yourself thin across every open door. It argues for choosing what matters, not for doing less for its own sake.'
+  },
+  {
+    q: 'Who is it for?',
+    a: 'For makers, strivers, parents, professionals, or anyone who feels the constant, low hum of "not enough" no matter how much they accomplish. If a life that looks full on paper still feels hollow to live, it was written for you.'
+  },
+  {
+    q: 'What if I cannot just quit my job?',
+    a: 'You do not have to. Most advice about slowing down assumes you can walk away, but a job, a family, or bills often mean you cannot. So the book offers the five per cent shift: one evening reclaimed, one meeting declined, one notification turned off for good, one project set down so the others can breathe. JOMO is most needed by the people who cannot simply quit.'
+  },
+  {
+    q: 'Is it just another productivity system?',
+    a: 'No. It is not a productivity system and not a plan to cram more into your day. It argues for the opposite: caring about fewer things on purpose. The problem was never your discipline or your morning routine, but a world that hands you infinite options and calls the resulting exhaustion "ambition".'
+  },
+  {
+    q: 'Is it backed by research?',
+    a: 'Yes. Alongside hard-won personal experience, it draws on decades of research on attention, comparison, and choice, each source named and cited in the book. Among them: the paradox of choice, social comparison theory, hedonic adaptation, the science of social pain, flow, and burnout as a loss of agency.'
+  }
+] %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for item in faqs %}{"@type":"Question","name":{{ item.q | dump | safe }},"acceptedAnswer":{"@type":"Answer","text":{{ item.a | dump | safe }}}}{% if not loop.last %},{% endif %}{% endfor %}]}
+</script>
+<section class="section"><div class="wrap" style="max-width:820px">
+  <div class="eyebrow">FAQ</div>
+  <h1>Questions people ask</h1>
+  <p class="lead">Short, honest answers drawn from <em>{{ site.title }}</em>. Tap a question to open it.</p>
+  {% for item in faqs %}
+  <details class="faq">
+    <summary>{{ item.q }}</summary>
+    <div class="faq-a"><p>{{ item.a }}</p></div>
+  </details>
+  {% endfor %}
+  <div class="buybar">
+    <p><strong>Ready to read it?</strong> <em>{{ site.title }}: {{ site.subtitle }}</em> by {{ site.author }}.</p>
+    <div class="btn-row"><a class="btn" href="{{ site.amazon.kindle }}" target="_blank" rel="noopener">Get it on Kindle</a>
+    <a class="btn ghost" href="/book/">About the book</a></div>
+  </div>
+</div></section>

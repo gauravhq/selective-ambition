@@ -1,0 +1,29 @@
+# Selective Ambition: The Joy of Missing Out on Purpose
+
+> A book by Gaurav Srivastava. The case for caring deeply about fewer things, and letting the rest go on purpose: the Joy of Missing Out (JOMO) reframed as a deliberate way of choosing, working, and living amid infinite options and AI-era pressure.
+
+Selective Ambition argues that the modern problem is not poor time management but too many open doors. It is not a productivity system; it is a case for intentional subtraction, grounded in named research on attention, comparison, and choice, and in the author's own experience of AI-era abundance and burnout. Full and fulfilling, the book argues, are two different things.
+
+## The book
+- Title: Selective Ambition: The Joy of Missing Out on Purpose
+- Author: Gaurav Srivastava (close to two decades in technology; built and sold a consultancy; now works hands-on with AI)
+- Buy: https://www.amazon.com/dp/B0HDKFJTF3 (Kindle, ASIN B0HDKFJTF3, published 2026-08-09, English)
+
+## Core ideas
+- Full and fulfilling are two different things.
+- Busy vs stretched: only one can be fixed with a calendar.
+- The intentional "no": hard, soft, and structural.
+- One-thing seasons: choose depth over forced breadth.
+- The 5% shift: JOMO for people who cannot simply walk away.
+
+## Research the book cites
+- The Paradox of Choice (Barry Schwartz) and the Iyengar & Lepper jam study
+- Social Comparison Theory (Leon Festinger, 1954)
+- Hedonic adaptation / the hedonic treadmill (Brickman & Campbell)
+- The social pain of rejection (Naomi Eisenberger, 2003, fMRI)
+- Flow (Mihaly Csikszentmihalyi); burnout as loss of agency (Maslach & Leiter)
+
+## Journal
+- Full and Fulfilling Are Two Different Things: https://gauravhq.github.io/selective-ambition/blog/full-and-fulfilling/
+- The Buffet Problem: https://gauravhq.github.io/selective-ambition/blog/the-buffet-problem/
+- The 5% Shift: https://gauravhq.github.io/selective-ambition/blog/the-five-percent-shift/

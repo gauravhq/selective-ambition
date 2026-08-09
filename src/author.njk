@@ -1,0 +1,18 @@
+---
+layout: base.njk
+permalink: /author/
+title: Author
+pageDescription: About Gaurav Srivastava, author of Selective Ambition.
+---
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","@id":{{ (site.url + "/author/#person") | dump | safe }},"name":{{ site.author | dump | safe }},"url":{{ (site.url + "/author/") | dump | safe }},"jobTitle":"Author","description":{{ "Author of Selective Ambition. Close to two decades in the technology industry; built and sold his own consultancy, and now works hands-on with AI." | dump | safe }},"knowsAbout":["intentional living","attention","the joy of missing out","technology","artificial intelligence"]{% if site.authorImage %},"image":{{ site.authorImage | dump | safe }}{% endif %}{% if site.authorSameAs and site.authorSameAs.length %},"sameAs":{{ site.authorSameAs | dump | safe }}{% endif %}}
+</script>
+<section class="section"><div class="wrap"><div class="panel" style="max-width:760px;margin:0 auto">
+  <div class="eyebrow">The Author</div>
+  <h2 class="author-name">Gaurav Srivastava</h2>
+  <p class="lead">Gaurav Srivastava has spent close to two decades in the technology industry. Along the way he built his own consultancy and sold it to a larger firm.</p>
+  <p>Today he works hands-on with AI, using it to write software and automate real-world problems in his day-to-day work, and he remains genuinely amazed by how much is suddenly possible.</p>
+  <p><em>Selective Ambition</em> grew out of that abundance: the realisation that when you can build almost anything, the hardest and most valuable skill becomes choosing what <em>not</em> to.</p>
+  <div class="rule"><span></span></div>
+  <p><a class="btn ghost" href="/book/">Read about the book</a></p>
+</div></div></section>
