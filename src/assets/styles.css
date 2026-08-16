@@ -137,6 +137,12 @@ article.post h2, article.post h3 { text-transform: none; margin-top: 28px; }
 .faq-a { padding: 0 0 16px; }
 .faq-a p { font-size: 17px; color: var(--ink-soft); margin: 0 0 10px; }
 .faq-more a { font-weight: 700; font-size: 14px; }
+/* jump-nav across the FAQ sections */
+.faq-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 4px; }
+.faq-nav a { font-family: var(--sans); font-size: 14px; font-weight: 600; text-decoration: none; color: var(--ink); background: var(--paper); border-radius: 999px; padding: 7px 14px; box-shadow: 0 3px 10px rgba(0,0,0,.08); }
+.faq-nav a:hover { color: var(--amber-deep); }
+/* jump targets clear the sticky header instead of landing underneath it */
+.faq-h { scroll-margin-top: 78px; }
 .foot-links { font-size: 14px; }
 .foot-links a { color: var(--amber-deep); }
 
@@ -150,4 +156,7 @@ article.post h2, article.post h3 { text-transform: none; margin-top: 28px; }
   .hero .btn-row { justify-content: center; }
   .grid2 { grid-template-columns: 1fr; }
   .cover-shot { order: -1; }
+  /* 12 section pills would otherwise fill the phone screen before the first question */
+  .faq-nav { gap: 6px; }
+  .faq-nav a { font-size: 13px; padding: 5px 11px; box-shadow: 0 2px 6px rgba(0,0,0,.07); }
 }
