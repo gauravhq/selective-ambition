@@ -20,7 +20,7 @@ pageDescription: Research-based answers on overcommitment, FOMO and JOMO, compar
   <h2 class="faq-h" id="{{ group.id }}" style="color:var(--ink);margin:34px 0 6px">{{ group.category }}</h2>
   <div class="rule"><span></span></div>
   {% for item in group.items %}
-  <details class="faq">
+  <details class="faq" id="q-{{ group.id }}-{{ loop.index }}">
     <summary>{{ item.q }}</summary>
     <div class="faq-a">
       <p>{{ item.a }}</p>
@@ -36,3 +36,19 @@ pageDescription: Research-based answers on overcommitment, FOMO and JOMO, compar
     <a class="btn ghost" href="/book/">About the book</a></div>
   </div>
 </div></section>
+<script>
+  /* Search links to a single question. Open that accordion and put it in view, instead of
+     landing on a collapsed row the reader then has to hunt for. */
+  (function () {
+    function openTarget() {
+      var id = location.hash.slice(1);
+      if (!id) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      var d = el.tagName === "DETAILS" ? el : el.closest("details");
+      if (d) { d.open = true; d.scrollIntoView({ block: "center" }); }
+    }
+    window.addEventListener("hashchange", openTarget);
+    openTarget();
+  })();
+</script>
