@@ -30,6 +30,8 @@ jobs:
         env:
           PATH_PREFIX: "/selective-ambition/"
         run: npx @11ty/eleventy
+      - name: Build the search index (Pagefind)
+        run: npx pagefind --site _site
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:
