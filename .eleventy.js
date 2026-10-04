@@ -40,6 +40,10 @@ module.exports = function (eleventyConfig) {
       JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: items }) +
       "</script>";
   });
+  // Recent posts excluding one URL, so the homepage "latest" list never repeats the featured card.
+  eleventyConfig.addFilter("recentExcluding", (posts, url, n) =>
+    (posts || []).filter((p) => p.url !== url).slice(0, n || 3)
+  );
   eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 
   return {
