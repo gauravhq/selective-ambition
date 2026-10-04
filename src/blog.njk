@@ -11,7 +11,7 @@ pageDescription: Short ideas from Selective Ambition, one at a time - on choosin
   <div class="post-list">
     {% for post in collections.posts %}
     <a class="post-item" href="{{ post.url }}">
-      <div class="date">{{ post.date | readableDate }}</div>
+      {% set rpi = post.url | rp %}<div class="date">{% if rpi.label == "updated" %}Updated {{ rpi.effective | readableDate }}{% elif rpi.label == "archive" %}From the archive, {{ rpi.effective | readableDate }}{% else %}{{ post.date | readableDate }}{% endif %}</div>
       <h3>{{ post.data.title }}</h3>
       <p>{{ post.data.pageDescription }}</p>
     </a>

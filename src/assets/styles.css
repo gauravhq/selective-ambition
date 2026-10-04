@@ -126,6 +126,8 @@ article.post h1 { text-transform: none; font-size: clamp(30px, 5vw, 46px); margi
 article.post p { font-size: 18px; margin: 0 0 18px; }
 article.post h2, article.post h3 { text-transform: none; margin-top: 28px; }
 .buybar { margin-top: 34px; padding-top: 24px; border-top: 2px solid rgba(0,0,0,.1); }
+/* A "Revisited" addition from a later republish (lib/republish.js): set apart as a dated later note. */
+article.post .revisit { margin-top: 30px; padding-top: 2px; border-top: 1px solid rgba(0,0,0,.1); }
 
 /* ---- FAQ accordion ---- */
 .faq { background: var(--paper); border-radius: 12px; padding: 2px 20px; margin: 10px 0; box-shadow: 0 6px 18px rgba(0,0,0,.08); }

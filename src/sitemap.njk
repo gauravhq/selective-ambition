@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
 {%- if item.url and (item.url | last) == "/" %}
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
-    <lastmod>{{ item.date | isoDate }}</lastmod>
+    {% set rpi = item.url | rp %}<lastmod>{{ (rpi.lastModified if rpi else item.date) | isoDate }}</lastmod>
   </url>
 {%- endif %}
 {%- endfor %}

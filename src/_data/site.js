@@ -34,4 +34,8 @@ module.exports = {
   analytics: { plausibleDomain: "", ga4Id: "" },
   // Paste the token from Google Search Console (HTML tag method) to verify ownership.
   googleVerification: "",
+  // Weekly republishing once every post has gone out (lib/republish.js). The original drip ended on
+  // 2026-08-09; republishing starts on this date rather than backfilling the weeks in between, then
+  // runs post 1, 2, ... 200 and restarts at post 1, one a week, forever.
+  republish: { start: "2026-10-11" },
 };

@@ -11,15 +11,17 @@ eleventyExcludeFromCollections: true
     <description>{{ site.description }}</description>
     <language>en</language>
     <copyright>{{ site.author }}</copyright>
-    {% if collections.posts.length %}<lastBuildDate>{{ collections.posts[0].date | rssDate }}</lastBuildDate>{% endif %}
-    {% for post in collections.posts %}
+    {#- Republished posts (lib/republish.js) get a NEW guid per republish so readers see them again;
+        every other item keeps its permalink guid, so subscribers are never re-sent the back catalogue. #}
+    {% if collections.posts.length %}<lastBuildDate>{{ (collections.posts[0].url | rp).effective | rssDate }}</lastBuildDate>{% endif %}
+    {% for post in collections.posts %}{% set rpi = post.url | rp %}
     <item>
       <title>{{ post.data.title }}</title>
       <link>{{ site.url }}{{ post.url }}</link>
-      <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-      <pubDate>{{ post.date | rssDate }}</pubDate>
-      <description>{{ post.data.pageDescription }}</description>
-      <content:encoded><![CDATA[{{ post.templateContent | safe }}<p>From <em>{{ site.title }}: {{ site.subtitle }}</em> by {{ site.author }}. <a href="{{ site.url }}{{ post.url }}">Read the original</a>.</p>]]></content:encoded>
+      {% if rpi.cycle > 0 %}<guid isPermaLink="false">{{ site.url }}{{ post.url }}#republished-{{ rpi.effective | isoDay }}</guid>{% else %}<guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>{% endif %}
+      <pubDate>{{ rpi.effective | rssDate }}</pubDate>
+      <description>{% if rpi.label == "archive" %}From the archive: {% endif %}{{ post.data.pageDescription }}</description>
+      <content:encoded><![CDATA[{{ post.templateContent | safe }}{% for r in rpi.revisits %}<h2>Revisited, {{ r.date | monthYear }}</h2>{{ r.html | absolutize(site.url) | safe }}{% endfor %}<p>From <em>{{ site.title }}: {{ site.subtitle }}</em> by {{ site.author }}. {% if rpi.cycle > 0 %}First published {{ rpi.published | readableDate }}. {% endif %}<a href="{{ site.url }}{{ post.url }}">Read the original</a>.</p>]]></content:encoded>
     </item>
     {% endfor %}
   </channel>

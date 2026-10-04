@@ -1,15 +1,19 @@
 ---
 layout: base.njk
 ---
+{#- rpi = republish facts for this post (lib/republish.js). dateModified is emitted ONLY when a reviewed
+    Revisited addition actually changed the page, never for a plain republish. -#}
+{%- set rpi = page.url | rp -%}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","@id":{{ (site.url + page.url + "#post") | dump | safe }},"headline":{{ title | dump | safe }},"description":{{ pageDescription | dump | safe }},"datePublished":{{ (date | isoDate) | dump | safe }},"author":{"@type":"Person","@id":{{ (site.url + "/author/#person") | dump | safe }},"name":{{ site.author | dump | safe }}},"publisher":{"@type":"Organization","@id":{{ (site.url + "/#organization") | dump | safe }},"name":{{ site.title | dump | safe }}},"image":{{ (site.url + "/assets/cover.jpg") | dump | safe }},"mainEntityOfPage":{{ (site.url + page.url) | dump | safe }},"isPartOf":{"@type":"Book","@id":{{ (site.url + "/book/#book") | dump | safe }},"name":{{ (site.title + ": " + site.subtitle) | dump | safe }},"author":{"@type":"Person","@id":{{ (site.url + "/author/#person") | dump | safe }},"name":{{ site.author | dump | safe }}},"identifier":{"@type":"PropertyValue","propertyID":"ASIN","value":{{ site.book.kindle.asin | dump | safe }}}}}
+{"@context":"https://schema.org","@type":"BlogPosting","@id":{{ (site.url + page.url + "#post") | dump | safe }},"headline":{{ title | dump | safe }},"description":{{ pageDescription | dump | safe }},"datePublished":{{ (date | isoDate) | dump | safe }},{% if rpi and rpi.lastModified > rpi.published %}"dateModified":{{ (rpi.lastModified | isoDate) | dump | safe }},{% endif %}"author":{"@type":"Person","@id":{{ (site.url + "/author/#person") | dump | safe }},"name":{{ site.author | dump | safe }}},"publisher":{"@type":"Organization","@id":{{ (site.url + "/#organization") | dump | safe }},"name":{{ site.title | dump | safe }}},"image":{{ (site.url + "/assets/cover.jpg") | dump | safe }},"mainEntityOfPage":{{ (site.url + page.url) | dump | safe }},"isPartOf":{"@type":"Book","@id":{{ (site.url + "/book/#book") | dump | safe }},"name":{{ (site.title + ": " + site.subtitle) | dump | safe }},"author":{"@type":"Person","@id":{{ (site.url + "/author/#person") | dump | safe }},"name":{{ site.author | dump | safe }}},"identifier":{"@type":"PropertyValue","propertyID":"ASIN","value":{{ site.book.kindle.asin | dump | safe }}}}}
 </script>
 <section class="section"><div class="wrap" style="max-width:760px">
   <article class="post">
-    <div class="date">{{ date | readableDate }}</div>
+    <div class="date">{% if rpi and rpi.label == "updated" %}Updated {{ rpi.effective | readableDate }}. First published {{ date | readableDate }}.{% elif rpi and rpi.label == "archive" %}From the archive. First published {{ date | readableDate }}.{% else %}{{ date | readableDate }}{% endif %}</div>
     <p class="frombook">From <a href="/book/"><em>{{ site.title }}</em></a> by {{ site.author }}</p>
     <h1>{{ title }}</h1>
-    {{ content | safe }}
+    {{ content | safe }}{% if rpi and rpi.revisits.length %}{% for r in rpi.revisits %}
+    <section class="revisit"><h2>Revisited, {{ r.date | monthYear }}</h2>{{ r.html | safe }}</section>{% endfor %}{% endif %}
     <div class="buybar">
       <p><strong>This is one small idea from <em>{{ site.title }}: {{ site.subtitle }}</em> by {{ site.author }}.</strong></p>
       <div class="btn-row">
